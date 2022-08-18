@@ -21,7 +21,7 @@ runs:
             import os
             os.chdir(".github")
             print(os.listdir())
-            os.chdir("workflow")
+            os.chdir("workflows")
             print(os.listdir())
             print(os.getcwd())
       shell: python
