@@ -20,6 +20,6 @@ runs:
     - run: |
             import os
             print(os.listdir())
-            os.chdir("../")
+            os.chdir(".github")
             print(os.getcwd())
       shell: python
