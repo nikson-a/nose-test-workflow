@@ -19,5 +19,5 @@ inputs:
     default: ${{ github.GITHUB_ACTION_REPOSITORY }}
     required: true
 runs:
-  using: 'python'
-  main: 'main.py'
+  using: 'docker'
+  main: 'Dockerfile'
