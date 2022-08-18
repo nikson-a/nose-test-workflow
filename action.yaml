@@ -17,5 +17,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: python main.py
+    - run: main.py
       shell: python
