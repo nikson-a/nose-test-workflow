@@ -19,5 +19,5 @@ inputs:
     default: ${{ github.GITHUB_ACTION_REPOSITORY }}
     required: true
 runs:
-  using: 'python3.9'
+  using: 'python'
   main: 'main.py'
