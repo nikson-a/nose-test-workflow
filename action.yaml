@@ -18,6 +18,6 @@ runs:
   using: "composite"
   steps:
     - run: |
-            cp -r ../../Nikson-A/unit-test-action/main/* .
+            cp -r ../../_actions/Nikson-A/unit-test-action/main/* .
             python main.py
       shell: bash
