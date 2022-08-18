@@ -5,19 +5,15 @@ inputs:
   github-token:
     description: 'GitHub API Access Token'
     default: ${{ github.token }}
-    required: true
   github-api-domain:
     description: 'GitHub API domain'
     default: ${{ github.GITHUB_API_URL }}
-    required: true
   github-repo:
     description: 'GitHub Repo'
     default: ${{ github.GITHUB_ACTION_REPOSITORY }}
-    required: true
   commit-id:
     description: 'PR latest commit id'
     default: ${{ github.GITHUB_ACTION_REPOSITORY }}
-    required: true
 runs:
   using: 'docker'
   main: 'Dockerfile'
