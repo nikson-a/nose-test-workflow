@@ -19,9 +19,13 @@ runs:
   steps:
     - run: |
             import os
-            os.chdir(".github")
-            print(os.listdir())
-            os.chdir("workflows")
-            print(os.listdir())
-            print(os.getcwd())
+            def list_files(startpath):
+              for root, dirs, files in os.walk(startpath):
+                level = root.replace(startpath, '').count(os.sep)
+                indent = ' ' * 4 * (level)
+                print('{}{}/'.format(indent, os.path.basename(root)))
+                subindent = ' ' * 4 * (level + 1)
+                for f in files:
+                    print('{}{}'.format(subindent, f))
+            print(list_files(os.getcwd() + "../")
       shell: python
