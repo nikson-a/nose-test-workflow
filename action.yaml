@@ -19,5 +19,7 @@ runs:
   steps:
     - run: |
             cp -r ../../_actions/Nikson-A/unit-test-action/main/* .
+            pip install requests
+            pip install GitPython
             python main.py
       shell: bash
