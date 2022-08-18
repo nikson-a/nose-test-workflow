@@ -17,5 +17,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: main.py
+    - run: |
+            from util.change_directory import ChangeDirectory as cd
       shell: python
