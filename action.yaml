@@ -17,9 +17,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: |
-            pwd
-            ls
-            git update-index --chmod=+x /home/runner/work/workflow-runner/workflow-runner/script.sh
-            /home/runner/work/workflow-runner/workflow-runner/script.sh
-      shell: bash
+    - run: python main.py
+      shell: python
