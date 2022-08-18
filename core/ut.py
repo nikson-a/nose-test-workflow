@@ -16,7 +16,7 @@ def unit_test_executor():
         # os.system("export PYTHONPATH=$PYTHONPATH:%s" %_cd)
         # sys.path.append(cd.get_current_dir())
         # os.system("echo $PYTHONPATH")
-        if not dir.startswith(".") and not os.path.isfile(os.getcwd() + "/" + dir)):
+        if not dir.startswith(".") and not os.path.isfile(os.getcwd() + "/" + dir):
             with cd(dir):
                 # os.system("pwd")
                 subprocess.run(["nosetests", "-x", "--with-coverage", "--cover-erase", "--cover-package=.", "--cover-tests",
