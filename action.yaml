@@ -18,5 +18,6 @@ runs:
   using: "composite"
   steps:
     - run: |
-            from util.change_directory import ChangeDirectory as cd
+            import os
+            print(os.getcwd())
       shell: python
