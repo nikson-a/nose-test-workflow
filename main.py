@@ -14,6 +14,8 @@ def print_hi(name):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     # print_hi('PyCharm')
+    for name, value in os.environ.items():
+        print("{0}: {1}".format(name, value))
     with cd("./"):
         unit_test_executor()
 
