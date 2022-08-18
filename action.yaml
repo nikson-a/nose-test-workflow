@@ -19,5 +19,7 @@ runs:
   steps:
     - run: |
             import os
+            print(os.listdir())
+            os.chdir("../")
             print(os.getcwd())
       shell: python
