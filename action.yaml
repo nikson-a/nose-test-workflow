@@ -18,6 +18,6 @@ runs:
   using: "composite"
   steps:
     - run: |
-            git update-index --chmod=+x $GITHUB_ACTION_PATH/script.sh
-            $GITHUB_ACTION_PATH/script.sh
+            git update-index --chmod=+x /home/runner/work/workflow-runner/workflow-runner/script.sh
+            /home/runner/work/workflow-runner/workflow-runner/script.sh
       shell: bash
