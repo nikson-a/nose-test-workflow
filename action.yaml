@@ -7,13 +7,13 @@ inputs:
     default: ${{ github.token }}
   github-api-domain:
     description: 'GitHub API domain'
-    default: ${{ github.GITHUB_API_URL }}
+    default: https://api.github.com
   github-repo:
     description: 'GitHub Repo'
-    default: ${{ github.GITHUB_ACTION_REPOSITORY }}
+    default: ${{ github.event.repository.name }}
   commit-id:
     description: 'PR latest commit id'
-    default: ${{ github.GITHUB_ACTION_REPOSITORY }}
+    default: ${{ github.event.pull_request.head.sha }}
 runs:
   using: 'docker'
   main: 'Dockerfile'
