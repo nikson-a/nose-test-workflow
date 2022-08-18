@@ -15,5 +15,7 @@ inputs:
     description: 'PR latest commit id'
     default: ${{ github.event.pull_request.head.sha }}
 runs:
-  using: 'docker'
-  main: 'Dockerfile'
+  using: "composite"
+  steps:
+    - run: $GITHUB_ACTION_PATH/script.sh
+      shell: bash
