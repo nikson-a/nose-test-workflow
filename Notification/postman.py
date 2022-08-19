@@ -12,6 +12,7 @@ class Postman:
         self.repo = os.getenv("GITHUB_REPOSITORY")
         self.api_domain = os.getenv("github-api-domain", "https://api.github.com")
         self.commit_id = os.getenv("GITHUB_SHA")
+        self.ex_coverage = os.getenv("INPUT_EXPECT_COVERAGE", 90)
 
     def set_header(self, key, value):
         self.headers[key] = value
@@ -28,4 +29,4 @@ class Postman:
         response = requests.post(Constant.COMMAND_API.format(domain=self.api_domain, git_repo=self.repo, commit_id=self.commit_id),
                       headers=self.headers, data=payload)
         print(response.text)
-        return coverage==100 
+        return coverage>=self.ex_coverage 
