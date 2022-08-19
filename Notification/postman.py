@@ -8,10 +8,10 @@ from util.coverage_parser import coverage_export
 class Postman:
     def __init__(self):
         self.headers = {}
-        self.token = os.getenv("github-token")
-        self.repo = os.getenv("github-repo")
+        self.token = os.getenv("GITHUB_TOKEN")
+        self.repo = os.getenv("GITHUB_REPOSITORY")
         self.api_domain = os.getenv("github-api-domain", "https://api.github.com")
-        self.commit_id = os.getenv("commit-id")
+        self.commit_id = os.getenv("GITHUB_SHA")
 
     def set_header(self, key, value):
         self.headers[key] = value
