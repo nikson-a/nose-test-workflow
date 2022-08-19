@@ -2,7 +2,7 @@ name: 'NoseTest Coverage and Comment'
 description: 'Run noseTest and Comments a pull request with the pytest code coverage badge and full report'
 author: 'Nikson A'
 inputs:
-  github-token:
+  github_token:
     description: 'GitHub API Access Token'
     default: ${{ github.token }}
   github-api-domain:
