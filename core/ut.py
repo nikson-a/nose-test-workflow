@@ -10,6 +10,7 @@ from util.git_engine import get_git_diff
 def unit_test_executor():
     git_diff = get_git_diff()
     print(git_diff)
+    block = True
     for dir in git_diff:
         # _cd = cd.get_current_dir()
         # print(_cd, type(_cd))
@@ -23,4 +24,7 @@ def unit_test_executor():
                                 "--cover-xml"])
                 # print(coverage_export(cd.get_current_dir()))
                 notify = Postman()
-                notify.send(cd.get_current_dir())
+                if not notify.send(cd.get_current_dir()):
+                    block = False
+    if not block:
+        raise Exception("Test coverage not reach expection")
