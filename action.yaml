@@ -8,12 +8,9 @@ inputs:
   github-api-domain:
     description: 'GitHub API domain'
     default: https://api.github.com
-  github-repo:
-    description: 'GitHub Repo'
-    default: ${{ github.event.repository.name }}
-  commit-id:
-    description: 'PR latest commit id'
-    default: ${{ github.event.pull_request.head.sha }}
+  expect_coverage:
+    description: 'if coverage not met expect coverage will throw error'
+    default: 90
 runs:
   using: "composite"
   steps:
