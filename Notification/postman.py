@@ -8,7 +8,7 @@ from util.coverage_parser import coverage_export
 class Postman:
     def __init__(self):
         self.headers = {}
-        self.token = os.getenv("GITHUB_TOKEN")
+        self.token = os.getenv("INPUT_GITHUB_TOKEN")
         self.repo = os.getenv("GITHUB_REPOSITORY")
         self.api_domain = os.getenv("github-api-domain", "https://api.github.com")
         self.commit_id = os.getenv("GITHUB_SHA")
