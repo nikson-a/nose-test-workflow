@@ -18,7 +18,7 @@ def unit_test_executor():
         # os.system("echo $PYTHONPATH")
         if not dir.startswith(".") and not os.path.isfile(os.getcwd() + "/" + dir):
             with cd(dir):
-                # os.system("if [ -f requirements.txt ]; then pip install -r requirements.txt; fi")
+                os.system("if [ -f requirements.txt ]; then pip install -r requirements.txt; fi")
                 subprocess.run(["nosetests", "-x", "--with-coverage", "--cover-erase", "--cover-package=.", "--cover-tests",
                                 "--cover-xml"])
                 # print(coverage_export(cd.get_current_dir()))
