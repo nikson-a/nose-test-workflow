@@ -21,5 +21,7 @@ runs:
             pip install GitPython
             pip install nose
             pip install coverage
+            echo "###############"
+            echo $INPUT_EXPECT_COVERAGE
             python main.py
       shell: bash
