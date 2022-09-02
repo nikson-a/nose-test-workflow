@@ -7,7 +7,7 @@ inputs:
     default: ${{ github.token }}
   github_api_domain:
     description: 'GitHub API domain'
-    default: https://api.github.com
+    default: "https://api.github.com"
   github_repository:
     description: 'GitHub repo'
     required: true
