@@ -5,9 +5,15 @@ inputs:
   github_token:
     description: 'GitHub API Access Token'
     default: ${{ github.token }}
-  github-api-domain:
+  github_api_domain:
     description: 'GitHub API domain'
     default: https://api.github.com
+  github_repository:
+    description: 'GitHub repo'
+    required: true
+  commit_id:
+    description: 'GitHub Commit Id'
+    required: true
   expect_coverage:
     description: 'if coverage not met expect coverage will throw error'
     default: 90
