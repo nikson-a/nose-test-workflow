@@ -10,7 +10,7 @@ from util.git_engine import get_git_diff
 
 def unit_test_executor():
     git_diff = get_git_diff()
-    ut_conf = json.loads(os.genv("ut_conf"))
+    ut_conf = json.loads(os.getenv("ut_conf"))
     print(git_diff)
     block = True
     for _conf in ut_conf:
