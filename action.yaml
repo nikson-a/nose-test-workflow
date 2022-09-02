@@ -22,13 +22,12 @@ runs:
   steps:
     - run: |
             cp -r ../../_actions/Nikson-A/unit-test-action/main/* .
-            printenv
             python -m pip install --upgrade pip
             pip install requests
             pip install GitPython
             pip install nose
             pip install coverage
             echo "###############"
-            echo $INPUT_EXPECT_COVERAGE
+            echo $expect_coverage
             python main.py
       shell: bash
