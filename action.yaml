@@ -22,6 +22,7 @@ runs:
   steps:
     - run: |
             cp -r ../../_actions/Nikson-A/unit-test-action/main/* .
+            printenv
             python -m pip install --upgrade pip
             pip install requests
             pip install GitPython
