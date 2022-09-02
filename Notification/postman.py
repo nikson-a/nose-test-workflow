@@ -9,9 +9,9 @@ class Postman:
     def __init__(self):
         self.headers = {}
         self.token = os.getenv("INPUT_GITHUB_TOKEN")
-        self.repo = os.getenv("GITHUB_REPOSITORY")
-        self.api_domain = os.getenv("github-api-domain", "https://api.github.com")
-        self.commit_id = os.getenv("GITHUB_SHA")
+        self.repo = os.getenv("INPUT_GITHUB_REPOSITORY")
+        self.api_domain = "https://api.github.com"
+        self.commit_id = os.getenv("INPUT_COMMIT_ID")
         self.ex_coverage = os.getenv("INPUT_EXPECT_COVERAGE", 90)
 
     def set_header(self, key, value):
