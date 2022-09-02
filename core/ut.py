@@ -19,7 +19,7 @@ def unit_test_executor():
         # os.system("echo $PYTHONPATH")
         if _conf.get("path").split("/")[0] in git_diff:
             with cd(_conf.get("path")):
-                print(f"if [ -f {_conf['requirement']} ]; then pip install -r {_conf['requirement']}; fi"
+                print(f"if [ -f {_conf['requirement']} ]; then pip install -r {_conf['requirement']}; fi")
                 os.system(f"if [ -f {_conf['requirement']} ]; then pip install -r {_conf['requirement']}; fi")
                 subprocess.run(["nosetests", "-x", "--with-coverage", "--cover-erase", "--cover-package=.", "--cover-tests", "--cover-xml"])
                 notify = Postman()
