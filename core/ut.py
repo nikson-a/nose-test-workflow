@@ -17,7 +17,7 @@ def unit_test_executor():
         _cd = cd.get_current_dir()
         os.system("export PYTHONPATH=$PYTHONPATH:%s" %_cd + ut_conf["python_path"])
         # os.system("echo $PYTHONPATH")
-        if _conf.get("path")[".split("/")[0] in git_diff:
+        if _conf.get("path").split("/")[0] in git_diff:
             with cd(dir):
                 os.system(f"if [ -f {_conf["requirement"]} ]; then pip install -r _conf["requirement"]; fi")
                 subprocess.run(["nosetests", "-x", "--with-coverage", "--cover-erase", "--cover-package=.", "--cover-tests", "--cover-xml"])
