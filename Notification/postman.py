@@ -18,7 +18,7 @@ class Postman:
         self.headers[key] = value
 
     def payload_constructor(self, dir):
-        self.set_header("Authorization", "bearer " +self.token)
+        self.set_header("Authorization", "Bearer " + self.token)
         lines, covered, coverage = coverage_export(dir)
         return coverage, Constant.PAYLOAD_TEMPLATE.format(lines=lines, covered=covered, coverage=coverage)
 
