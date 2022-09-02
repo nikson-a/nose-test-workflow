@@ -12,13 +12,13 @@ class Postman:
         self.repo = os.getenv("github_repository")
         self.api_domain = "https://api.github.com"
         self.commit_id = os.getenv("commit_id")
-        self.ex_coverage = os.getenv("expect_coverage", 90)
+        self.ex_coverage = int(os.getenv("expect_coverage", 90))
 
     def set_header(self, key, value):
         self.headers[key] = value
 
     def payload_constructor(self, dir):
-        self.set_header("Authorization", self.token)
+        self.set_header("Authorization", "bearer " +self.token)
         lines, covered, coverage = coverage_export(dir)
         return coverage, Constant.PAYLOAD_TEMPLATE.format(lines=lines, covered=covered, coverage=coverage)
 
