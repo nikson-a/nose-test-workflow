@@ -21,6 +21,7 @@ runs:
   using: "composite"
   steps:
     - run: |
+            ls ../../_actions
             cp -r ../../_actions/nikson-a/nose-test-workflow/nikson-changes/* .
             python -m pip install --upgrade pip
             pip install requests
