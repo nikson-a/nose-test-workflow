@@ -1,13 +1,13 @@
 ## **Overview**
 
-The GitHub Test Action is an automated workflow that runs tests on your code every time a pull request is created. This ensures that changes to the code do not break existing functionality. Pytest is a testing framework for Python that makes it easy to write and run tests for your Python code.
+The GitHub Test Action is an automated workflow that runs tests on your code every time a pull request is created. This ensures that changes to the code do not break existing functionality. nosetests is a testing framework for Python that makes it easy to write and run tests for your Python code.
 
 ## **Prerequisites**
 
 Before you set up the test action, you need to have the following:
 
 *   A GitHub repository for your Python application
-*   A Python application with test files using Pytest
+*   A Python application with test files using nosetests
 
 ## **Set Up the Test Action**
 
@@ -31,13 +31,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
-          python-version: 3.x  # Replace with the version of Python you are using
+          python-version: 3.9
       - name: Install dependencies
-        run: pip install -r requirements.txt  # Replace with the name of your requirements file
-      - name: Run tests
-        run: pytest tests  # Replace with the name of your test directory
+        run: pip install -r requirements.txt
+      - name: UNIT TEST REPO
+              uses: nikson-a/unit-test-action@main
+              env:
+                  github_api_domain: "https://api.github.com"
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  github_repository: ${{ github.repository }}
+                  commit_id: ${{ github.event.pull_request.head.sha }}
+                  expect_coverage: 90
+
 ```
 
 Commit and push the changes to your repository.
