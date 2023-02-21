@@ -19,7 +19,7 @@ class Postman:
         self.headers[key] = value
 
     def payload_constructor(self, _dir):
-        self.set_header(NotificationConstant.AUTHORIZATION, f"f{Constant.BEARER} {self.token}")
+        self.set_header(NotificationConstant.AUTHORIZATION, f"f{NotificationConstant.BEARER} {self.token}")
         lines, covered, coverage = coverage_export(_dir)
         return coverage, {NotificationConstant.BODY: NotificationConstant.PAYLOAD_TEMPLATE.format(lines=lines, covered=covered, coverage=coverage)}
 
