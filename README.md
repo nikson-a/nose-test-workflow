@@ -9,6 +9,10 @@ Before you set up the test action, you need to have the following:
 *   A GitHub repository for your Python application
 *   A Python application with test files using nosetests
 
+## **Sample Output**
+
+<img width="852" alt="Screenshot 2023-02-21 at 11 20 42 PM" src="https://user-images.githubusercontent.com/43266690/220422362-583324fc-f07c-4fd6-a786-ef82dc9cdecf.png">
+
 ## **Set Up the Test Action**
 
 To set up the test action for your Python application, follow these steps:
@@ -58,10 +62,6 @@ Click on the test workflow to view the details.
 
 Click on the "Run workflow" button to run the test action.
 
-
-## **Sample Output**
-
-<img width="852" alt="Screenshot 2023-02-21 at 11 20 42 PM" src="https://user-images.githubusercontent.com/43266690/220422362-583324fc-f07c-4fd6-a786-ef82dc9cdecf.png">
 
 
 ## **Conclusion**
