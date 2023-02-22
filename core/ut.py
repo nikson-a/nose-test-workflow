@@ -10,7 +10,7 @@ from util.git_engine import get_git_diff
 
 def get_conf():
     with open("nose_test_workflow_conf.json", "r") as conf_file:
-        conf = json.loads(conf.file.read())
+        conf = json.loads(conf_file.read())
     return conf
 
 
