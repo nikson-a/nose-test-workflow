@@ -8,9 +8,15 @@ import json
 from util.git_engine import get_git_diff
 
 
+def get_conf():
+    with open("nose_test_workflow_conf.json", "r") as conf_file:
+        conf = json.loads(conf.file.read())
+    return conf
+
+
 def unit_test_executor():
     git_diff = get_git_diff()
-    ut_conf = json.loads(os.getenv("ut_conf"))
+    ut_conf = get_conf()
     block = True
     for _conf in ut_conf:
         _cd = cd.get_current_dir()
