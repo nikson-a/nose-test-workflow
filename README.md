@@ -67,3 +67,12 @@ Click on the "Run workflow" button to run the test action.
 ## **Conclusion**
 
 The GitHub Test Action using Pytest is a powerful tool for ensuring the quality and reliability of your Python application. By following the steps outlined in this readme file, you can easily set up and run tests for your Python code in GitHub. This updated version of the readme is for the repository [https://github.com/nikson-a/nose-test-workflow](https://github.com/nikson-a/nose-test-workflow).
+
+## **Sample Output**
+
+<img width="852" alt="Screenshot 2023-02-21 at 11 20 42 PM" src="https://user-images.githubusercontent.com/43266690/220422362-583324fc-f07c-4fd6-a786-ef82dc9cdecf.png">
+
+
+## **Conclusion**
+
+The GitHub Test Action using Pytest is a powerful tool for ensuring the quality and reliability of your Python application. By following the steps outlined in this readme file, you can easily set up and run tests for your Python code in GitHub. This updated version of the readme is for the repository [https://github.com/Nikson-A/unit-test-action](https://github.com/Nikson-A/unit-test-action).
