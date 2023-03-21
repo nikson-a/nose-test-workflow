@@ -9,6 +9,10 @@ Before you set up the test action, you need to have the following:
 *   A GitHub repository for your Python application
 *   A Python application with test files using nosetests
 
+## **Sample Output**
+
+<img width="852" alt="Screenshot 2023-02-21 at 11 20 42 PM" src="https://user-images.githubusercontent.com/43266690/220422362-583324fc-f07c-4fd6-a786-ef82dc9cdecf.png">
+
 ## **Set Up the Test Action**
 
 To set up the test action for your Python application, follow these steps:
@@ -39,12 +43,22 @@ jobs:
       - name: UNIT TEST REPO
               uses: nikson-a/unit-test-action@main
               env:
-                  github_api_domain: "https://api.github.com"
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   github_repository: ${{ github.repository }}
                   commit_id: ${{ github.event.pull_request.head.sha }}
                   expect_coverage: 90
 
+```
+
+Register your serices to be execute unit test.\n
+File Name: nose_test_workflow_conf.json\n
+File Path: root dir
+```plaintext
+[{
+	"path": path to your service,
+	"requirement": requirements_txt file name,
+	"python_path": add if any lib to be included in python path (optional)
+}]
 ```
 
 Commit and push the changes to your repository.
@@ -59,6 +73,11 @@ Click on the test workflow to view the details.
 
 Click on the "Run workflow" button to run the test action.
 
+
+
+## **Conclusion**
+
+The GitHub Test Action using Pytest is a powerful tool for ensuring the quality and reliability of your Python application. By following the steps outlined in this readme file, you can easily set up and run tests for your Python code in GitHub. This updated version of the readme is for the repository [https://github.com/nikson-a/nose-test-workflow](https://github.com/nikson-a/nose-test-workflow).
 
 ## **Sample Output**
 

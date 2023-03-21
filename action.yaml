@@ -21,13 +21,7 @@ runs:
   using: "composite"
   steps:
     - run: |
-            cp -r ../../_actions/Nikson-A/unit-test-action/main/* .
             python -m pip install --upgrade pip
-            pip install requests
-            pip install GitPython
-            pip install nose
-            pip install coverage
-            echo "###############"
-            echo $expect_coverage
-            python main.py
+            pip install -r $GITHUB_ACTION_PATH/requirements.txt
+            python $GITHUB_ACTION_PATH/main.py
       shell: bash
