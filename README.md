@@ -50,6 +50,17 @@ jobs:
 
 ```
 
+Register your serices to be execute unit test
+File Name: nose_test_workflow_conf.json
+File Path: root dir
+```plaintext
+[{
+	"path": path to your service,
+	"requirement": requirements_txt file name
+  "python_path": add if any lib to be included in python path (optional)
+}]
+```
+
 Commit and push the changes to your repository.
 
 ## **Run the Test Action**
