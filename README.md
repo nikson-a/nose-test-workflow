@@ -50,14 +50,14 @@ jobs:
 
 ```
 
-Register your serices to be execute unit test
-File Name: nose_test_workflow_conf.json
+Register your serices to be execute unit test.\n
+File Name: nose_test_workflow_conf.json\n
 File Path: root dir
 ```plaintext
 [{
 	"path": path to your service,
-	"requirement": requirements_txt file name
-  "python_path": add if any lib to be included in python path (optional)
+	"requirement": requirements_txt file name,
+	"python_path": add if any lib to be included in python path (optional)
 }]
 ```
 
