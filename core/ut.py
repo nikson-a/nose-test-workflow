@@ -27,7 +27,8 @@ def send_notification(notify):
         return
     raise Exception("Test coverage not reach expectation")
 
-def install_requirement(conf)
+
+def install_requirement(conf):
     for req_txt in conf["requirement"]:
         os.system(f"if [ -f {req_txt} ]; then pip install -r {req_txt}; fi")
 
