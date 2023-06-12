@@ -19,9 +19,12 @@ def set_python_path(conf, folder):
     current_folder = cd.get_current_dir()
     print("CF:", current_folder)
     print("PYTHON PATH: ", conf.get("python_path", ""))
+    print(folder)
     if conf.get("python_path"):
+        os.system(f"echo {current_folder}:{current_folder}/{folder}:{conf['python_path']}")
         os.system(f"export PYTHONPATH={current_folder}:{current_folder}/{folder}:{conf['python_path']}")
     else:
+        os.system(f"echo {current_folder}:{current_folder}/{folder}")
         os.system(f"export PYTHONPATH={current_folder}:{current_folder}/{folder}")
     os.system("echo $PYTHONPATH")
 
