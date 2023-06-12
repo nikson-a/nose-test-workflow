@@ -47,8 +47,8 @@ def unit_test_executor():
     notify = Postman()
     for _folder in git_diff:
         if ut_conf.get(_folder):
-            install_requirement(ut_conf[_folder])
             set_python_path(ut_conf[_folder], _folder)
+            install_requirement(ut_conf[_folder])
             with cd(_folder):
                 subprocess.run(["nosetests", "-x", "--with-coverage", "--cover-erase", "--cover-package=.", "--cover-tests", "--cover-xml"])
                 notify.bulk_action(cd.get_current_dir(), ut_conf[_folder]["coverage"])
