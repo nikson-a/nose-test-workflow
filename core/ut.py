@@ -17,6 +17,8 @@ def get_conf():
 def set_python_path(conf):
     os.system("echo $GITHUB_WORKSPACE")
     current_folder = cd.get_current_dir()
+    print("CF:", current_folder)
+    print("PYTHON PATH: ", conf.get("python_path", ""))
     os.system("export PYTHONPATH=$GITHUB_WORKSPACE:%s" % current_folder + conf.get("python_path", ""))
     os.system("echo $PYTHONPATH")
 
