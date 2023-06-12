@@ -17,9 +17,10 @@ def get_conf():
 def set_python_path(conf, folder):
     current_folder = cd.get_current_dir()
     if conf.get("python_path"):
-        os.system(f"export PYTHONPATH={current_folder}:{current_folder}/{folder}:{conf['python_path']}")
+        python_path = conf['python_path']
+        os.system(f'echo "PYTHONPATH={current_folder}:{current_folder}/{folder}:{python_path}" >> $GITHUB_ENV')
     else:
-        os.system(f"export PYTHONPATH={current_folder}:{current_folder}/{folder}")
+        os.system(f'echo "PYTHONPATH={current_folder}:{current_folder}/{folder}" >> $GITHUB_ENV')
     os.system("echo TEST")
     os.system("echo $PYTHONPATH")
     os.system("echo TEST")
