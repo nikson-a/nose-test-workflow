@@ -22,7 +22,7 @@ def set_python_path(conf, folder):
     else:
         os.system(f'echo "PYTHONPATH={current_folder}:{current_folder}/{folder}" >> "$GITHUB_ENV"')
     os.system("echo $PYTHONPATH")
-    os.system("echo ${{env.PYTHONPATH}}")
+    os.system('echo "${{env.PYTHONPATH}}"')
 
 
 def send_notification(notify):
@@ -43,7 +43,7 @@ def unit_test_executor():
     notify = Postman()
     for _folder in git_diff:
         if ut_conf.get(_folder):
-            set_python_path(ut_conf[_folder], _folder)
+            # set_python_path(ut_conf[_folder], _folder)
             install_requirement(ut_conf[_folder])
             with cd(_folder):
                 subprocess.run(["nosetests", "-x", "--with-coverage", "--cover-erase", "--cover-package=.", "--cover-tests", "--cover-xml"])
