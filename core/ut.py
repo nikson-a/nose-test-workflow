@@ -14,21 +14,33 @@ def get_conf():
     return conf
 
 
+def set_python_path(conf):
+    os.system("echo $GITHUB_WORKSPACE")
+    current_folder = cd.get_current_dir()
+    os.system("export PYTHONPATH=$GITHUB_WORKSPACE:%s" % current_folder + conf.get("python_path", ""))
+    os.system("echo $PYTHONPATH")
+
+
+def send_notification(notify):
+    notify.send()
+    if notify.coverage_status:
+        return
+    raise Exception("Test coverage not reach expectation")
+
+def install_requirement(conf)
+    for req_txt in conf["requirement"]:
+        os.system(f"if [ -f {req_txt} ]; then pip install -r {req_txt}; fi")
+
+
 def unit_test_executor():
     git_diff = get_git_diff()
     ut_conf = get_conf()
-    block = True
-    for _conf in ut_conf:
-        _cd = cd.get_current_dir()
-        os.system("echo $GITHUB_WORKSPACE")
-        os.system("export PYTHONPATH=$PYTHONPATH:$GITHUB_WORKSPACE:%s" %_cd + _conf.get("python_path", ""))
-        os.system("echo $PYTHONPATH")
-        if _conf.get("path").split("/")[0] in git_diff:
-            with cd(_conf.get("path")):
-                os.system(f"if [ -f {_conf['requirement']} ]; then pip install -r {_conf['requirement']}; fi")
+    notify = Postman()
+    for _folder in git_diff:
+        if ut_conf.get(_folder):
+            install_requirement(ut_conf[_folder])
+            with cd(ut_conf[_folder]):
+                set_python_path(ut_conf[_folder])
                 subprocess.run(["nosetests", "-x", "--with-coverage", "--cover-erase", "--cover-package=.", "--cover-tests", "--cover-xml"])
-                notify = Postman()
-                if not notify.send(cd.get_current_dir()):
-                    block = False
-    if not block:
-        raise Exception("Test coverage not reach expection")
+                notify.bulk_action(cd.get_current_dir(), ut_conf[_folder]["coverage"])
+    send_notification(notify)
