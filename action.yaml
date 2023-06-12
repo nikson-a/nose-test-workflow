@@ -23,5 +23,6 @@ runs:
     - run: |
             python -m pip install --upgrade pip
             pip install -r $GITHUB_ACTION_PATH/requirements.txt
+            echo $GITHUB_WORKSPACE
             python $GITHUB_ACTION_PATH/main.py
       shell: bash

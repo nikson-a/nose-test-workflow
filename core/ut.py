@@ -20,7 +20,9 @@ def unit_test_executor():
     block = True
     for _conf in ut_conf:
         _cd = cd.get_current_dir()
-        os.system("export PYTHONPATH=$PYTHONPATH:%s" %_cd + _conf.get("python_path", ""))
+        os.system("echo $GITHUB_WORKSPACE")
+        os.system("export PYTHONPATH=$PYTHONPATH:$GITHUB_WORKSPACE:%s" %_cd + _conf.get("python_path", ""))
+        os.system("echo $PYTHONPATH")
         if _conf.get("path").split("/")[0] in git_diff:
             with cd(_conf.get("path")):
                 os.system(f"if [ -f {_conf['requirement']} ]; then pip install -r {_conf['requirement']}; fi")
