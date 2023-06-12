@@ -15,22 +15,14 @@ def get_conf():
 
 
 def set_python_path(conf, folder):
-    # env_file = os.getenv('GITHUB_ENV')
     current_folder = cd.get_current_dir()
-    os.system('echo "action_state=yellow" >> "$GITHUB_ENV"')
-    # with open(env_file, "a") as fp:
-        # myfile.write("MY_VAR=MY_VALUE")
-    os.system(f'echo "PYTHON_PATH={current_folder}:{current_folder}/{folder}:" >> "$GITHUB_ENV"')
     if conf.get("python_path"):
         python_path = conf['python_path']
-        # fp.write(f"PYTHONPATH={current_folder}:{current_folder}/{folder}:{python_path}")
         os.system(f'echo "PYTHONPATH={current_folder}:{current_folder}/{folder}:{python_path}" >> "$GITHUB_ENV"')
     else:
-        # fp.write(f"PYTHONPATH={current_folder}:{current_folder}/{folder}")
         os.system(f'echo "PYTHONPATH={current_folder}:{current_folder}/{folder}" >> "$GITHUB_ENV"')
     os.system("echo $PYTHONPATH")
-    os.system("echo $PYTHON_PATH")
-    os.system("echo $action_state")
+    os.system("echo ${{env.PYTHONPATH}}")
 
 
 def send_notification(notify):
