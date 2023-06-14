@@ -42,6 +42,9 @@ class Postman:
         return coverage, {NotificationConstant.BODY: NotificationConstant.PAYLOAD_TEMPLATE.format(lines=lines, covered=covered, coverage=coverage)}
 
     def send(self):
-        requests.post(NotificationConstant.COMMAND_API.format(domain=self.api_domain, git_repo=self.repo,
+        print("#" * 100)
+        print(self.payload)
+        result = requests.post(NotificationConstant.COMMAND_API.format(domain=self.api_domain, git_repo=self.repo,
                                                              commit_id=self.commit_id), headers=self.headers,
                                  data=json.dumps({NotificationConstant.BODY: self.payload}))
+        print(result.json())
