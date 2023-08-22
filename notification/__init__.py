@@ -7,6 +7,7 @@ class NotificationConstant:
                        "<tbody><tr><td>{lines}</td><td>{covered}</td><td>{coverage} %</td></tr></tbody></table>"
     GITHUB_TOKEN = "github_token"
     GITHUB_REPOSITORY = "github_repository"
+    PR_NUMBER = "PR_NUMBER"
     COMMIT_ID = "commit_id"
     EXPECT_COVERAGE = "expect_coverage"
     AUTHORIZATION = "Authorization"
