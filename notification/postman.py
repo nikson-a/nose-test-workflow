@@ -23,7 +23,8 @@ class Postman:
         self.headers[key] = value
 
     def set_authorized_header(self):
-        self.headers[NotificationConstant.AUTHORIZATION] = f"f{NotificationConstant.BEARER} {self.token}"
+        # self.headers[NotificationConstant.AUTHORIZATION] = f"f{NotificationConstant.BEARER} {self.token}"
+        self.headers[NotificationConstant.AUTHORIZATION] = f"{NotificationConstant.BEARER} {self.token}"
 
     def get_coverage(self, _dir):
         """return lines, covered, coverage """
