@@ -13,6 +13,7 @@ class Postman:
         self.repo = os.getenv(NotificationConstant.GITHUB_REPOSITORY)
         self.api_domain = NotificationConstant.GIT_API_DOMAIN
         self.commit_id = os.getenv(NotificationConstant.COMMIT_ID)
+        self.pr_no = os.getenv(NotificationConstant.PR_NUMBER)
         self.ex_coverage = int(os.getenv(NotificationConstant.EXPECT_COVERAGE, 90))
         self.payload = ""
         self.coverage_status = True
@@ -45,6 +46,6 @@ class Postman:
         print("#" * 100)
         print(self.payload)
         result = requests.post(NotificationConstant.COMMAND_API.format(domain=self.api_domain, git_repo=self.repo,
-                                                             commit_id=self.commit_id), headers=self.headers,
+                                                             pull_number=self.pr_no), headers=self.headers,
                                  data=json.dumps({NotificationConstant.BODY: self.payload}))
         print(result.json())
