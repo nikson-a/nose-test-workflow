@@ -46,6 +46,6 @@ class Postman:
         print("#" * 100)
         print(self.payload)
         result = requests.post(NotificationConstant.COMMAND_API.format(domain=self.api_domain, git_repo=self.repo,
-                                                             commit_id=self.commit_id), headers=self.headers,
+                                                             pull_number=self.pr_no), headers=self.headers,
                                  data=json.dumps({NotificationConstant.BODY: self.payload}))
         print(result.json())
